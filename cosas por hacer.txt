@@ -1,0 +1,6 @@
+arreglar el bug de la tabla (logrado)
+evitar registrar varios clientes con el mismo numero de documento (logrado)
+arreglar el reporte de productividad por empleado(Ya quedo :DDDDDDD)
+	- actualiza el turno aunque haya sido abandonado(logrado)
+	- toma el turno por atendido cuando apenas se registra el cliente(logrado)
+arreglar el puto error mierdoso malparido de tiempo esperado (no se porque ya no pasa XDDDDDDDDDDD)

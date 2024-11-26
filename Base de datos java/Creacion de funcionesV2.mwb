@@ -1,0 +1,26 @@
+delimiter //
+set global log_bin_trust_function_creators = 1;//
+
+CREATE FUNCTION calcular_tiempo(id INT) RETURNS TIME
+BEGIN
+	Declare TiempoEspera Time;
+    set TiempoEspera = ( SELECT TIMEDIFF(HoraFin, HoraInicio)
+        FROM Turno
+        WHERE Clientes_idClientes = id);
+	return TiempoEspera;
+END;//
+
+select * from clientes;//
+select * from turno;//
+
+/*3. Reporte de productividad de los empleados por cantidad de turnos atendidos.*/
+CREATE FUNCTION ProductividadEmpleados (p_idEmpleado INT)
+RETURNS INT
+BEGIN
+    DECLARE cantidadTurnos INT;
+    
+    SELECT COUNT(t.idTurno) INTO cantidadTurnos
+    FROM turno t
+    WHERE t.Empleados_idEmpleados = p_idEmpleado and t.HoraFin IS not NULL;
+    RETURN cantidadTurnos;
+END;//
